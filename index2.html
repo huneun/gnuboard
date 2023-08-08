@@ -1,0 +1,41 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>API Connection Study</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(()=>{
+
+
+        function fruitsCall(){
+          $.ajax({
+            url: "http://13.125.16.125/",
+            type: "POST",
+            dataType:"json"
+          }).done(function(json){
+            console.log(json);
+          });
+        }
+
+        $("#getfruits").on("click", ()=> {
+          fruitsCall();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="idvalue" placeholder="아이디">
+    <input type="password" id="pwdvalue" placeholder="패스워드">
+    <input type="text" id="phone" placeholder="휴대폰 번호">
+
+     <button id="join">회원가입</button>
+     <button id="login">로그인</button>
+     <button id="send">메시지보내기</button>
+     <button id="getfruits">과일가져오기</button>
+
+     <div id="chatList">
+       제목 내용
+     </div>
+  </body>
+</html>
